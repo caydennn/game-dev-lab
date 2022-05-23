@@ -12,14 +12,23 @@ public class PlayerController : MonoBehaviour
 
     public Transform enemyLocation;
     public TMP_Text scoreText;
+    public AudioSource marioJumpAudio;
+    public AudioSource marioDieAudio;
+
+    public AudioSource themeMusic;
 
     public GameObject restartButton;
     public int score = 0;
+
+    private Animator marioAnimator;
+
     private bool countScoreState = false;
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
     private Rigidbody2D marioBody;
     private bool onGroundState = true;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +37,8 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 30;
         marioBody = GetComponent<Rigidbody2D>();
         marioSprite = GetComponent<SpriteRenderer>();
+        marioAnimator = GetComponent<Animator>();
+
     }
 
     void FixedUpdate()
@@ -48,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown("space") && onGroundState)
+        if (Input.GetKeyDown("space") && onGroundState) // prevent double jumping 
         {
             marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
             onGroundState = false;
@@ -73,13 +84,24 @@ public class PlayerController : MonoBehaviour
         {
             faceRightState = false;
             marioSprite.flipX = true;
+
+            // Lab 2:
+            if (Mathf.Abs(marioBody.velocity.x) > 1.0)
+                marioAnimator.SetTrigger("onSkid");
+
         }
 
         if (Input.GetKeyDown("d") && !faceRightState)
         {
             faceRightState = true;
             marioSprite.flipX = false;
+
+            // Lab 2:
+            if (Mathf.Abs(marioBody.velocity.x) > 1.0)
+                marioAnimator.SetTrigger("onSkid");
         }
+
+        
 
         // when jumping, and Gomba is near Mario and we haven't registered our score
         if (!onGroundState && countScoreState)
@@ -91,21 +113,26 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(score);
             }
         }
-        
+
+        // Lab 2
+        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+        marioAnimator.SetBool("onGround", onGroundState);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-            Vector2 movement = new Vector2(moveHorizontal, 0);
-
-        // marioBody.velocity = Vector2.zero;
-        marioBody.AddForce(movement * -speed);
-        Time.timeScale = 0.0f;
-        restartButton.SetActive(true);
+            themeMusic.Stop();
+            marioDieAudio.PlayOneShot(marioDieAudio.clip);
+            Time.timeScale = 0.0f;
+            restartButton.SetActive(true);
         }
+    }
+
+    void PlayJumpSound() {
+        marioJumpAudio.PlayOneShot(marioJumpAudio.clip);
     }
 }
 
