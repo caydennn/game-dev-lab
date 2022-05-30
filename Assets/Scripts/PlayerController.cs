@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Obstacles") || other.gameObject.CompareTag("Pipe"))
         {
             onGroundState = true; // back on ground
             countScoreState = false; // reset score state

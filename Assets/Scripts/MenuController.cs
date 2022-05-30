@@ -28,8 +28,10 @@ public class MenuController : MonoBehaviour
                 Time.timeScale = 1.0f;
             }
         }
-        instantiateEnemy();
-        mario.GetComponent<PlayerController>().enemyLocation = enemy.transform;
+
+// todo: make enemy if needed
+        // instantiateEnemy();
+        // mario.GetComponent<PlayerController>().enemyLocation = enemy.transform;
 
     }
 
