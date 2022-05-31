@@ -15,7 +15,9 @@ public class MushroomController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.AddForce(Vector2.up  *  2, ForceMode2D.Impulse);
-        currentDirection = new Vector2(1, 0);
+        float rand = Random.Range(0f,1.0f);
+        Debug.Log(rand);
+        currentDirection = rand > 0.5 ? new Vector2(1, 0) : new Vector2(-1, 0);
     }
 
     // Update is called once per frame
