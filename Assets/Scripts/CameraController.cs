@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform player; // Mario's Transform
     public Transform endLimit; // GameObject that indicates end of map
+    public Transform startLimit; 
     private float offset; // initial x-offset between camera and Mario
     private float startX; // smallest x-coordinate of the Camera
     private float endX; // largest x-coordinate of the camera
@@ -19,7 +20,7 @@ public class CameraController : MonoBehaviour
         viewportHalfWidth = Mathf.Abs(bottomLeft.x - this.transform.position.x);
 
         offset = this.transform.position.x - player.position.x;
-        startX = this.transform.position.x;
+        startX = startLimit.transform.position.x + viewportHalfWidth;
         endX = endLimit.transform.position.x - viewportHalfWidth;
     }
 
