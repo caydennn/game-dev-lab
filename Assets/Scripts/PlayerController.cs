@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public GameObject restartButton;
     public int score = 0;
 
+    public ParticleSystem dustCloud;
+
     private Animator marioAnimator;
 
     private bool countScoreState = false;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
         marioBody = GetComponent<Rigidbody2D>();
         marioSprite = GetComponent<SpriteRenderer>();
         marioAnimator = GetComponent<Animator>();
+
 
     }
 
@@ -73,6 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             onGroundState = true; // back on ground
             countScoreState = false; // reset score state
+            dustCloud.Play();
             scoreText.text = "Score: " + score.ToString();
         }
     }
