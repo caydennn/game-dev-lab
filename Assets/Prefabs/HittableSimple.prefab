@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7536375962831337164}
   m_Layer: 19
   m_Name: HittableSimple
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 7536375963827158218}
   springJoint: {fileID: 7536375963827158217}
-  consummablePrefab: {fileID: 6053614606490940084, guid: 403c94362a1ba47c9915e32205b0d8c9, type: 3}
+  consummablePrefab: {fileID: 6053614606490940084, guid: 2bc86fdfb1ad846e1a854dc6ba8b504f, type: 3}
   spriteRenderer: {fileID: 7536375963827158219}
   usedQuestionBox: {fileID: 21300054, guid: 855dc7396df3c4e49ac4d21234eac5e1, type: 3}
