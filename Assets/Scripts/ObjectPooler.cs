@@ -70,7 +70,7 @@ public class ObjectPooler : MonoBehaviour
 
     }
 
-    public GameObject getPooledObject(ObjectType type)
+    public GameObject GetPooledObject(ObjectType type)
     {
         // return inactive pooled object if it matches the type
         for (int i = 0; i < pooledObjects.Count; i++)

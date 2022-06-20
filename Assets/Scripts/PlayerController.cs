@@ -48,7 +48,13 @@ public class PlayerController : MonoBehaviour
         marioSprite = GetComponent<SpriteRenderer>();
         marioAnimator = GetComponent<Animator>();
 
+        // find game object with tag Music
+        // themeMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         GameManager.OnPlayerDeath += PlayerDiesSequence;
+    }
+
+    private void Awake()
+    {
     }
 
     void FixedUpdate()
@@ -138,18 +144,31 @@ public class PlayerController : MonoBehaviour
         marioJumpAudio.PlayOneShot(marioJumpAudio.clip);
     }
 
-    void PlayerDiesSequence()
+    public void PlayerDiesSequence()
     {
         // Mario dies
         Debug.Log("Mario Dies");
+
         themeMusic.Stop();
+        Debug.Log("Audio Enabled?");
+
+        // Debug.Log(marioDieAudio.enabled);
         marioDieAudio.PlayOneShot(marioDieAudio.clip);
 
+        // marioDieAudio.Play();
         // Time.timeScale = 0.0f;
         // Animate mario dying
+        marioAnimator = GetComponent<Animator>();
+
         marioAnimator.SetTrigger("onDeath");
         marioBody
             .AddForce(new Vector2(0, marioBody.mass * 50), ForceMode2D.Impulse);
         GetComponent<BoxCollider2D>().enabled = false;
+        restartButton.gameObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnPlayerDeath -= PlayerDiesSequence;
     }
 }

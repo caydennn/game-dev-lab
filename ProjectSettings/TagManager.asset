@@ -9,6 +9,7 @@ TagManager:
   - Obstacles
   - Pipe
   - SpawnPool
+  - Music
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3937946581080362443}
   - component: {fileID: 7534368903693962107}
   - component: {fileID: 4759191489182690775}
-  - component: {fileID: 6531158647732529344}
+  - component: {fileID: 5773962245003615326}
   m_Layer: 20
   m_Name: OrangeMushroom
   m_TagString: Untagged
@@ -100,10 +100,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &6531158647732529344
+--- !u!114 &5773962245003615326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6053614606490940084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d42b37918fc476a8ae678e1c2c4c27, type: 3}
+  m_Script: {fileID: 11500000, guid: c5a3f3eaee8154231b2f6c30f8be58ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 2800000, guid: b4983de13b1ec43138547055de23a9b0, type: 3}
+  stats: {fileID: 11400000, guid: eee57de2b47d34b2b98c2bbf73632fbb, type: 2}
+  onCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc1bfe6e4d7784c669e3da6f04ff9c06, type: 2}
+        m_TargetAssemblyTypeName: PowerupEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

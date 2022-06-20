@@ -52,9 +52,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (
-            Math.Abs(enemyBody.position.x - originalX) <
-            gameConstants.maxOffset
+        if (Math.Abs(enemyBody.position.x - originalX) < gameConstants.maxOffset
         )
         {
             MoveEnemy();
@@ -159,6 +157,11 @@ public class EnemyController : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetTrigger("Rejoice");
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnPlayerDeath -= EnemyRejoice;
     }
 
     void BeginDancing()

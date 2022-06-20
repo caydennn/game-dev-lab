@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3937946581080362443}
   - component: {fileID: 7534368903693962107}
   - component: {fileID: 4759191489182690775}
-  - component: {fileID: -4403265527597039737}
+  - component: {fileID: 5487795593038523675}
   m_Layer: 20
   m_Name: RedMushroom
   m_TagString: Untagged
@@ -100,10 +100,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 20
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &-4403265527597039737
+--- !u!114 &5487795593038523675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6053614606490940084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7dd3020bd2d94925b49f3698a1ad14e, type: 3}
+  m_Script: {fileID: 11500000, guid: c5a3f3eaee8154231b2f6c30f8be58ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 2800000, guid: c7fb4bae5713442058897bd8f5597132, type: 3}
+  stats: {fileID: 11400000, guid: bd5dd1eb1608343adbe642ff78196267, type: 2}
+  onCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc1bfe6e4d7784c669e3da6f04ff9c06, type: 2}
+        m_TargetAssemblyTypeName: PowerupEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bd5dd1eb1608343adbe642ff78196267, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Powerup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

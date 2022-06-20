@@ -8,11 +8,11 @@ public class SpawnManager : MonoBehaviour
 
     void Awake()
     {
-        // spawn two gombaEnemy
-        // for (int j = 0; j < 2; j++) spawnFromPooler(ObjectType.gombaEnemy);
         spawnFromPooler(ObjectType.gombaEnemy);
         spawnFromPooler(ObjectType.greenEnemy);
     }
+        // spawn two gombaEnemy
+        // for (int j = 0; j < 2; j++) spawnFromPooler(ObjectType.gombaEnemy);
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log("Calling spawn from pooler");
 
         // static method access
-        GameObject item = ObjectPooler.SharedInstance.getPooledObject(i);
+        GameObject item = ObjectPooler.SharedInstance.GetPooledObject(i);
         if (item != null)
         {
             //set position, and other necessary states

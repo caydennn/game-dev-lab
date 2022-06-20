@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da14112a92c6741f8800d263021651e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f62a35cbdd294ee0a4432d3de7a96af, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
+  playerStartingMaxSpeed: 5
+  playerMaxJumpSpeed: 50
+  playerDefaultForce: 150
   consumeTimeStep: 10
   consumelargestScale: 4
   breakTimeStep: 30
@@ -19,6 +22,6 @@ MonoBehaviour:
   breakDebrisForce: 10
   spawnNumberOfDebris: 10
   rotatorRotationSpeed: 6
-  groundSurface: -0.29
+  groundSurface: -1
   enemyPatroltime: 2
   maxOffset: 5

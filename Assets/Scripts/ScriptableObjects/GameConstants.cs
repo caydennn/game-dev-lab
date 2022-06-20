@@ -15,11 +15,17 @@ public class GameConstants : ScriptableObject
 
     int currentPlayerHealth;
 
+    // Mario basic starting values
+    public int playerStartingMaxSpeed = 5;
+
+    public int playerMaxJumpSpeed = 30;
+
+    public int playerDefaultForce = 150;
+
     // for Reset values
     Vector3 gombaSpawnPointStart = new Vector3(2.5f, -0.45f, 0); // hard coded location
 
     // for Consume.cs
-
     public int consumeTimeStep = 10;
 
     public int consumelargestScale = 4;
@@ -35,14 +41,14 @@ public class GameConstants : ScriptableObject
     public int spawnNumberOfDebris = 10;
 
     // for Rotator.cs
-
     public int rotatorRotationSpeed = 6;
 
     // for ground
-    public double groundSurface = -0.29;
+    public float groundSurface = -0.29f;
 
     // for Enemy
     public float enemyPatroltime = 2.0f;
+
     public float maxOffset = 5.0f;
 
     // Start is called before the first frame update
