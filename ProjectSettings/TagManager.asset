@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Obstacles
+  - Pipe
+  - SpawnPool
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -13,21 +17,21 @@ TagManager:
   - 
   - Water
   - UI
+  - BG0
+  - BG1
+  - BG2
+  - BG3
+  - BG4
+  - BG5
+  - BG6
+  - BG7
+  - BG8
+  - BG9
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacles
+  - QuestionBox
+  - Spawned
   - 
   - 
   - 
@@ -40,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 513764847
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
